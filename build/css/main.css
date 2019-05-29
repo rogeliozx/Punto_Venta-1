@@ -3,6 +3,11 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.container{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  width: 100% !important;
+}
 .centrar{
     margin-left: 20vw !important;
     margin-right: 26vw !important;
@@ -22,10 +27,11 @@ body{
 }
 .acomoda-2{
   float: right !important;
+  
  
 }
 .x_panel{
-  width: 95% !important;
+  width: 90% !important;
 }
 .tile_stats_count {
   border-bottom: 1px solid #D9DEE4;
