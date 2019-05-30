@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Punto de venta</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
@@ -30,6 +31,20 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body class="nav-sm">
@@ -68,9 +83,10 @@
                         <div class="x_panel">
 
                             <form id="demo-form" data-parsley-validate-novalidate>
-                                <div class="field">
+                                <div class="field separador">
+                                    <labl>Codigo</labl>
                                     <p class="control has-icons-left has-icons-right">
-                                        <input class="input is-medium is-hovered" type="number" placeholder="Codigo">
+                                        <input class="input is-medium is-hovered" type="number" placeholder="Codigo" min="0" >
 
                                         </span>
                                         <span class="icon is-small is-right">
@@ -79,30 +95,35 @@
                                     </p>
 
                                 </div>
-                                <div class="field">
-                                    <input class="input" type="text" placeholder="Disabled input" disabled>
+                                <div class="field separador">
+                                        <labl>Codigo</labl>
+                                    <input class="input is-medium is-hovered" type="text" placeholder="Disabled input" disabled>
                                 </div>
-                                <div class="field">
-                                    <input class="input" type="text" placeholder="Disabled input" disabled>
+                                <div class="field separador">
+                                        <labl>Codigo</labl>
+                                    <input class="input is-medium is-hovered" type="text" placeholder="Disabled input" disabled>
                                 </div>
-                                <div class="field">
-                                    <input class="input" type="text" placeholder="Disabled input" disabled>
+                                <div class="field separador">
+                                        <labl>Codigo</labl>
+                                    <input class="input is-medium is-hovered" type="text" placeholder="Disabled input" disabled>
                                 </div>
-                                <div class="field">
-                                    <input class="input" type="text" placeholder="Disabled input" disabled>
+                                <div class="field separador">
+                                        <labl>Codigo</labl>
+                                    <input class="input is-medium is-hovered" type="text" placeholder="Disabled input" disabled>
                                 </div>
-                                <div class="field">
-                                    <input class="input" type="text" placeholder="Disabled input" disabled>
+                                <div class="field separador">
+                                        <labl>Codigo</labl>
+                                    <input class="input is-medium is-hovered" type="text" placeholder="Disabled input" disabled>
                                 </div>
                             </form>
 
 
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
+                    <div class="col-md-6 col-xs-12 acomoda-1">
                         <div class=" acomoda x_panel">
                             <div class="table-responsive">
-                                <table class="table table-striped jambo_table bulk_action">
+                                <table id="listado" class="table table-striped jambo_table bulk_action">
                                     <thead>
                                         <tr class="headings">
                                             <th class="column-title" style="display:table-cell">
@@ -171,6 +192,18 @@
                                         </tr>
                                         <tr class="even pointer">
                                             <td>123912039280</td>
+                                            <td>Lal</td>
+                                            <td>1kg</td>
+                                            <td>200$</td>
+                                        </tr>
+                                        <tr class="odd pointer">
+                                            <td>123912039280</td>
+                                            <td>Nuez</td>
+                                            <td>1kg</td>
+                                            <td>200$</td>
+                                        </tr>
+                                        <tr class="odd pointer">
+                                            <td>123912039280</td>
                                             <td>Nuez</td>
                                             <td>1kg</td>
                                             <td>200$</td>
@@ -186,6 +219,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2 class="centrar">Busqueda</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+    
+                                    <div class="col-md-12 col-sm-12 col-xs-12 tile_stats_count field">
+                                            <a onclick="document.getElementById('id01').style.display='block'" class="col-md-6 button is-success is-focused is-rounded is-medium">Buscar</a>
+    
+                                    </div>
+    
+    
+    
+                                   
+    
+    
+                                </div>
+                            </div>
+                        </div>
                     <div class="col-md-6 col-xs-12 acomoda-2">
                         <div class="x_panel">
                             <div class="x_title">
@@ -193,22 +247,22 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                
-                                    <div class="col-md-6 col-sm-4 col-xs-6 tile_stats_count">
-                                            <span class="count_top col-md-6"><i class="fa fa-user"></i> Total</span>
-                                            <div class="count green col-md-6">2,500</div>
-                                         
-                                          </div>
+
+                                <div class="col-md-6 col-sm-4 col-xs-6 tile_stats_count">
+                                    <span class="count_top col-md-6"><i class="fa fa-user"></i> Total</span>
+                                    <div class="count green col-md-6">2,500</div>
+
+                                </div>
 
 
 
                                 <div class="col-md-6 col-sm-4 col-xs-6 tile_stats_count field">
-                                   
-                                       <a class="col-md-6 button is-info is-focused is-rounded is-medium">Efectivo</a>
-                                       <a class="col-md-6 button is-info is-focused is-rounded is-medium ">Tarjeta</a>
-                                      
-                                        
-                                   
+
+                                    <a onclick="document.getElementById('id01').style.display='block'" class="col-md-6 button is-info is-focused is-rounded is-medium">Efectivo</a>
+                                    <a onclick="document.getElementById('id02').style.display='block'" class="col-md-6 button is-info is-focused is-rounded is-medium ">Tarjeta</a>
+
+
+
 
                                 </div>
 
@@ -221,6 +275,85 @@
         </div>
     </div>
     </div>
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+          </div>
+    
+          <form class="w3-container" action="/action_page.php">
+            <div class="w3-section">
+              <label><b>Username</b></label>
+              <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+              <label><b>Password</b></label>
+              <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+              <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+              <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+            </div>
+          </form>
+    
+          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+            <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+          </div>
+    
+        </div>
+      </div>
+      <div id="id02" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+          </div>
+    
+          <form class="w3-container" action="/action_page.php">
+            <div class="w3-section">
+              <label><b>Username</b></label>
+              <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+              <label><b>Password</b></label>
+              <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+              <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+              <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+            </div>
+          </form>
+    
+          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+            <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+          </div>
+    
+        </div>
+      </div>
+      <div id="id03" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+          </div>
+    
+          <form class="w3-container" action="/action_page.php">
+            <div class="w3-section">
+              <label><b>Username</b></label>
+              <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+              <label><b>Password</b></label>
+              <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+              <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+              <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+            </div>
+          </form>
+    
+          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+            <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+          </div>
+    
+        </div>
+      </div>
+
     <!-- jQuery -->
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -259,9 +392,43 @@
     <!-- bootstrap-daterangepicker -->
     <script src="vendors/moment/min/moment.min.js"></script>
     <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+    <!-- Datatable -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+    <script>
+        $(document).on("ready", function () {
+            $("#listado").DataTable();
+        });
+
+    </script>
+
+    <script>
+        window.addEventListener("load", function (event) {
+            let divs = document.getElementById('listado_wrapper').childNodes;
+        
+         let cambio= divs[0].childNodes
+        cambio.forEach(hijos => {
+            hijos.classList.remove('col-sm-6');
+            hijos.classList.add('col-sm-3');
+        });
+        });
+      
+    </script>
 </body>
 
 </html>
