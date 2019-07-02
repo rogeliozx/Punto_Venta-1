@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    overflow: hidden;
+}
+body{
+    margin:0 auto;
+    background: transparent;
+}
+aside{
+    float: left;
+    background:#2A3F54;
+    min-height: 100%;
+    width: 70px;
+    padding: 0;
+    z-index: 9999;
+    position: absolute;
+    bottom: 0vw;
+}
+#nav{
+    width: 97%;
+    margin-left: 3%;
+    display: block !important;
+}
+#nav>a{
+float: right;
+}
+.user-profile img{
+    width: 60px;
+}
+nav{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    height: 100%;
+    width: 70px;
+    overflow: hidden;
+    -webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+
+}
+nav>ul{
+    margin:7px 0;
+    padding-left: 0;
+    text-align: center;
+}
+nav li{
+    position: relative;
+    display: block;
+    width: 70px;
+    padding:10px 5px;
+    text-align: center;
+}
+nav li>a{
+  
+    position:relative;
+    display:table;
+    border-collapse:collapse;
+    border-spacing:0;
+    color:white;
+     font-family: arial;
+    font-weight: 400;
+     font-size: 14px;
+    text-decoration:none;
+    -webkit-transform:translateZ(0) scale(1,1);
+    -webkit-transition:all .5s linear;
+    transition:all .5s linear;
+    text-align: center;
+}
+nav i{
+    font-size: 35px;
+    text-align: center;
+}
+nav ul>li:hover{
+    color:#fff;
+background-color:#5fa2db;
+}
+nav ul>li:first-child{
+    margin-bottom: 2vw;
+    padding: 1vw;
+}
+nav i{
+    color:#E7E7E7;
+}
+#content{
+    min-width: 95%;
+    margin-left: 5.5em;
+    height: 100%;
+    position: absolute;
+    margin-top: 6em;
+    padding: 1vw;
+}
+#data-table{
+    max-height: 28vw;
+    overflow-y: scroll;
+}

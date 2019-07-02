@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav id="nav" class="nav_menu">
+  
+    <a class="navbar-brand user-profile dropdown-toggle" href="#">
+      <img src="../assets/img/prueba1.png" width="100" height="50" class="d-inline-block align-top" alt="">
+     
+    </a>
+  
+    
+  </nav>
+<aside>
+  <nav>
+  <ul>
+    <li>
+      <a href="#">
+          <i class="fas fa-cash-register"></i></a>
+    </li>
+    <li><a [routerLink]="['/sell']" [routerLinkActive]="['active']"><i class="fas fa-cash-register"></i>Venta</a></li>
+    <li><a href="#"><i class="fas fa-cash-register"></i>Inventario</a></li>
+  </ul>
+</nav>
+</aside>
+
+<section id="content">
+    <router-outlet></router-outlet>
+  </section>
