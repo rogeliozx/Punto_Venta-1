@@ -1,0 +1,9 @@
+#cerrar{
+    display: block;
+    position: absolute;
+    content: "✖";
+    margin-left: 85%;
+}
+.acm-tp {
+    margin-top: 10vw;
+}

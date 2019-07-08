@@ -10,6 +10,13 @@
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3 order-last tile_stats_count">
         <span class="count_top"> Acción</span>
-        <div class="count green"><div><button class="btn btn-primary btn-block">pagar</button></div></div>
+        <div class="count green"><div><button (click)="setModal(true)"class="btn btn-primary btn-block">pagar</button></div></div>
       </div>
+      <madapay 
+      [modals]="modal" 
+      id="modal" 
+      class="x_panel"
+       *ngIf="modal==true"
+       (getModal)="getClose($event)"
+       [@flyInout]></madapay>
 

@@ -7,9 +7,11 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export interface DataTableItem {
   name: string;
   id: number;
+  
 }
 
 // TODO: replace this with real data from your application
+
 const EXAMPLE_DATA: DataTableItem[] = [
   {id: 1, name: 'Hydrogen'},
   {id: 2, name: 'Helium'},
@@ -52,9 +54,10 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<DataTableItem[]> {
+  connect(e): Observable<DataTableItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
+   
     const dataMutations = [
       observableOf(this.data),
       this.paginator.page,
@@ -62,8 +65,11 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     ];
 
     return merge(...dataMutations).pipe(map(() => {
+      console.log("entre en el merge")
+      console.log(dataMutations);
       return this.getPagedData(this.getSortedData([...this.data]));
     }));
+   
   }
 
   /**
@@ -72,6 +78,19 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    */
   disconnect() {}
 
+  public deleteItem(itemid){
+  
+    for (let index = 0; index < this.data.length; index++) {
+     if( this.data[index].id==(itemid)){
+       console.log("cumpli la condicion");
+       this.data.splice(index, 1);
+       this.connect(1);
+      break;
+     }
+      
+    }
+  
+  }
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
@@ -95,6 +114,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
+      
         default: return 0;
       }
     });
@@ -104,4 +124,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+ function deleterow(itemid){
+  console.log(itemid);
 }

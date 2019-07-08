@@ -14,7 +14,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   dataSource: DataTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name','options'];
 
   ngOnInit() {
     this.dataSource = new DataTableDataSource();
@@ -25,4 +25,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+  async deleteMember(itemid){
+
+   await this.dataSource.deleteItem(itemid);
+
+
+   }
+  
 }
