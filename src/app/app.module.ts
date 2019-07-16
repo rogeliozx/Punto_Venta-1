@@ -11,8 +11,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { TableComponent } from './Components/table/table.component';
 import { PayComponent } from './Components/pay/pay.component';
 import { MadapayComponent } from './Components/madapay/madapay.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { TableSelection } from './data-table/data-table.component';
+import { MatTableModule, MatPaginatorModule, MatSortModule,MatCheckboxModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
     TableComponent,
     PayComponent,
     MadapayComponent,
-    DataTableComponent
+    TableSelection
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,8 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
     routing,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule
     
   ],
   providers: [appRoutingProviders],

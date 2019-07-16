@@ -72,8 +72,10 @@ nav i{
     text-align: center;
 }
 nav ul>li:hover{
+    transition: all 500ms;
     color:#fff;
 background-color:#5fa2db;
+transform: scale(1,1.1);
 }
 nav ul>li:first-child{
     margin-bottom: 2vw;
@@ -92,5 +94,5 @@ nav i{
 }
 #data-table{
     max-height: 28vw;
-    overflow-y: scroll;
+    
 }

@@ -6,7 +6,19 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            Aquí va la busqueda de productos
+            <input
+            [value]="searchValue"
+            (keydown.enter)="codingSearch($event)"
+            class="form-control" 
+            type="text"
+             placeholder="Código Producto">
+            <br>
+            <input 
+            [value]="searchName"
+            (keydown.enter)="nameSearch($event)"
+            class="form-control" 
+            type="text" 
+            placeholder="Búsqueda por Nombre">
           </div>
         </div>
      
