@@ -1,41 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import {consola,getData} from './service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { consola, getData } from './service';
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  public searchValue:String="";
-  public searchName:String="";
-  
-  
+  @Output() getProductos = new EventEmitter;
+  public searchValue: String = "";
+  public searchName: String = "";
+  public productos: any;
+
   constructor(
-  
-  ) { 
-    
-   }
+
+  ) {
+
+
+  }
 
   ngOnInit() {
   }
-  addingToTable(valor){
+  async addingToTable(valor) {
     console.log(valor);
-console.log(getData(1))
-  setTimeout(()=>{
-this.clearSearch()
-  },500); 
+    let result = await getData(1);
+
+    this.productos = result;
+    this.emitir()
+    setTimeout(() => {
+      this.productos={};
+      this.clearSearch()
+    }, 500);
   }
-  clearSearch(){
+  clearSearch() {
     this.searchValue = null;
     this.searchName = null;
   }
-  codingSearch(e){
+  codingSearch(e) {
     this.searchValue = e.target.value;
 
     this.addingToTable(this.searchValue)
   }
-  nameSearch(e){
+  nameSearch(e) {
     this.searchName = e.target.value;
-    this.addingToTable( this.searchName)
+    this.addingToTable(this.searchName)
+  }
+  emitir() {
+   
+    this.getProductos.emit(this.productos);
   }
 }

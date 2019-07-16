@@ -1,41 +1,49 @@
 
 
-const data={
-    "Productos":[
-        {   "id":1,
-            "Nombre":"Aceite",
-            "Medida":"1lt",
-            "Costo":"20$"
+
+const data = {
+    "Productos": [
+        {
+            "id": 1,
+            "nombre": "Aceite",
+            "costo": "20$",
+            "medida": "1lt"
         },
-        {   "id":2,
-            "Nombre":"Consome",
-            "Medida":"1pz",
-            "Costo":"10$"
+        {
+            "id": 2,
+            "nombre": "Consome",
+            "costo": "10$",
+            "medida": "1pz"
         },
-        {   "id":3,
-            "Nombre":"Azucar",
-            "Medida":"1kg",
-            "Costo":"30$"
+        {
+            "id": 3,
+            "nombre": "Azucar",
+            "costo": "30$",
+            "medida": "1kg",
         },
-        {   "id":4,
-            "Nombre":"Cafe",
-            "Medida":"300gr",
-            "Costo":"36$"
+        {
+            "id": 4,
+            "nombre": "Cafe",
+            "costo": "36$",
+            "medida": "300gr"
         }
 
     ]
 };
 
-export const consola=()=>{
-    
+export const consola = () => {
+
     console.log(data);
 }
-export const getData=(value)=>{
- data.Productos.map((elemento)=>{
-if(elemento.id===value){
-    return elemento.id
-}else{
-    console.log("prueba");
-}
- })
+export async function getData(number) {
+    let element;
+    data.Productos.map((elemento) => {
+        if (elemento.id === number) {
+            element = elemento;
+            return;
+
+        }
+    })
+
+    return element;
 }

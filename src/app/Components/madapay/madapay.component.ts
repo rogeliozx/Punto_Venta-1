@@ -10,7 +10,7 @@ export class MadapayComponent implements OnInit {
 @Input() modals:boolean; 
 @Output() getModal=new EventEmitter();
 //animacion al acoplar
-show:boolean=false;
+
   constructor() { }
 
   ngOnInit() {

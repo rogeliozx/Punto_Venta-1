@@ -1,4 +1,5 @@
 
+
   <button 
   class="btn btn-danger"
   mat-raised-button color="primary" (click)="removeAllRows()">
@@ -9,28 +10,28 @@
     <!-- Eliminate Column -->
    
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}}  </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <!-- nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    <!-- costo Column -->
+    <ng-container matColumnDef="costo">
+      <mat-header-cell *matHeaderCellDef> Costo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.costo}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    <!-- medida Column -->
+    <ng-container matColumnDef="medida">
+      <mat-header-cell *matHeaderCellDef> Medida </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.medida}} </mat-cell>
     </ng-container>
     
     
@@ -41,7 +42,7 @@
       <mat-cell *matCellDef="let row">
         <button 
         class="btn btn-danger"
-        (click)="removeSelectedRows(row.position)" 
+        (click)="removeSelectedRows(row.id)" 
             >
             <i class="fas fa-trash"></i>
       </button>
@@ -51,8 +52,9 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"
              (click)="selection.toggle(row)">
     </mat-row>
+   
   </mat-table>
-
+ 
 
 <!-- <ng-container matColumnDef="options">
   <mat-header-cell class="celda" *matHeaderCellDef> Options </mat-header-cell>

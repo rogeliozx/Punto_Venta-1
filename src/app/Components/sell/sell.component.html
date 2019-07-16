@@ -1,7 +1,12 @@
 <div class="row">
-    <register class="col-md-6 col-sm-6 col-xs-12"></register>
+    <register (getProductos)="emitRegister($event)"
+    class="col-md-6 col-sm-6 col-xs-12"></register>
     
-        <data-table id="data-table" class="example-container mat-elevation-z8 col-md-6 col-sm-6 col-xs-12 x_panel"></data-table>
+        <data-table 
+        [producto]="producto"
+        id="data-table" 
+        class="example-container mat-elevation-z8 col-md-6 col-sm-6 col-xs-12 x_panel">
+    </data-table>
 
     
     
