@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { consola, getData } from './service';
+import { consola, getDataById,getDataByName } from './service';
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
@@ -20,30 +20,39 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  async addingToTable(valor) {
-    console.log(valor);
-    let result = await getData(1);
-
+  async addingToTable(valor,searchBy) {
+   
+    let result;
+   if(searchBy===1){
+      result = await getDataById(parseInt(valor))
+    }else if(searchBy===2){
+      result = await getDataByName(valor)
+    }
+ 
     this.productos = result;
     this.emitir()
-    setTimeout(() => {
+      setTimeout(() => {
       this.productos={};
       this.clearSearch()
-    }, 500);
+     }, 300);
   }
+
   clearSearch() {
     this.searchValue = null;
     this.searchName = null;
   }
-  codingSearch(e) {
-    this.searchValue = e.target.value;
 
-    this.addingToTable(this.searchValue)
+  codingSearch(event) {
+    this.searchValue = event.target.value;
+
+    this.addingToTable(this.searchValue,1)
   }
-  nameSearch(e) {
-    this.searchName = e.target.value;
-    this.addingToTable(this.searchName)
+
+  nameSearch(event) {
+    this.searchName = event.target.value;
+    this.addingToTable(this.searchName,2)
   }
+
   emitir() {
    
     this.getProductos.emit(this.productos);

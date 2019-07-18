@@ -35,10 +35,26 @@ export const consola = () => {
 
     console.log(data);
 }
-export async function getData(number) {
+export async function getDataById(number) {
     let element;
     data.Productos.map((elemento) => {
-        if (elemento.id === number) {
+        if (elemento.id === (number)) {
+            element = elemento;
+            return;
+
+        }
+    })
+
+    return element;
+}
+export async function getDataByName(name) {
+    
+  let search= name.charAt(0).toUpperCase() + name.slice(1);
+  
+    console.log(search);
+    let element;
+    data.Productos.map((elemento) => {
+        if (elemento.nombre === search) {
             element = elemento;
             return;
 

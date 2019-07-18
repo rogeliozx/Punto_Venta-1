@@ -15,7 +15,9 @@ public producto:any;
   emitRegister(event){
 
     this.producto=event;
-  
+  setTimeout(()=>{
+    this.producto=null;
+  },100)
  
 
 

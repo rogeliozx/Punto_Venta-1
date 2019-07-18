@@ -1,7 +1,7 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { OnChanges,AfterContentChecked} from '@angular/core';
 /**
  * @title Table with selection
  */
@@ -10,43 +10,90 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['data-table.component.css'],
   templateUrl: 'data-table.component.html',
 })
-export class TableSelection {
-  @Input()  producto:any; 
+export class TableSelection implements OnChanges,AfterContentChecked {
+ 
+  @Input() producto: any;
+  public total:number;
+  private destroy:boolean=false;
   displayedColumns = ['id', 'nombre', 'costo', 'medida', 'select'];
   data = Object.assign(ELEMENT_DATA);
   dataSource = new MatTableDataSource<Element>(this.data);
   selection = new SelectionModel<Element>(true, []);
-  constructor() {
+  constructor(
+    
+  ) {
 
   }
-  /** Whether the number of selected elements matches the total number of rows. */
-  removeAllRows() {
-    console.log(this.data.length);
-    this.data.splice(0, this.data.length)
-    this.dataSource = new MatTableDataSource<Element>(this.data);
-
+  ngOnChanges() {
+    if (this.producto) {
+      this.AddingToTable(this.producto);
+      this.producto=[]; 
+      this.CostTotal()
+    }
    
   }
-  removeSelectedRows(e) {
-    
-    console.log(this.data);
+  //despues de hacer algo en el dom 
+  ngAfterContentChecked() {
+    if(this.destroy){
+     //aqui se emitiran los datos cuando sufran cambios 
 
+    }
+    
+  }
+  
+// se usa cada vez ahi un cambio en el dom del componente
+  
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  removeAllRows() {
+  if(this.data!==[]){
+    this.data.splice(0, this.data.length);
+    this.dataSource = new MatTableDataSource<Element>(this.data);
+  }else{
+    alert("Nada que eliminar");
+  }
+   
+  }
+
+  removeSelectedRows(e) {
 
     let index: number = this.data.findIndex(d => d.id === e);
-    
-    this.data.splice(index, 1)
+let minus= this.getCost(this.data[index].costo);
+console.log(minus);
+    this.data.splice(index, 1);
+    this.refresh();
+  this.total= this.total-minus;
+  this.destroy=true;
+  }
+
+  AddingToTable(producto) {
+    this.data.push(producto);
     this.refresh();
   }
 
-  getProducto(event){
-    console.log(event)
-  }
-  refresh(){
-    
-    this.dataSource = new MatTableDataSource<Element>(this.data);
-    
-  }
 
+  refresh() {
+    this.dataSource = new MatTableDataSource<Element>(this.data);
+  }
+  CostTotal(){
+  
+    let total:number=0;
+    
+    this.data.map((element , indx ,array)=>{
+total=total+this.getCost(element.costo);
+
+    })
+
+   this.total=total;
+   console.log(this.total)
+  }
+  getCost(cost):number{
+    let costo:number;
+    const pattern:RegExp=/\d+/g;
+  costo=parseInt(cost.match(pattern));
+ 
+return costo;
+  }
 }
 
 export interface Element {
@@ -56,28 +103,7 @@ export interface Element {
   medida: string;
 }
 
-export const ELEMENT_DATA: Element[] = [
-  { id: 21, nombre: 'Hydrogen', costo: 1.0079, medida: 'H' },
-  { id: 2, nombre: 'Helium', costo: 4.0026, medida: 'He' },
-  { id: 3, nombre: 'Lithium', costo: 6.941, medida: 'Li' },
-  { id: 4, nombre: 'Beryllium', costo: 9.0122, medida: 'Be' },
-  { id: 5, nombre: 'Boron', costo: 10.811, medida: 'B' },
-  { id: 6, nombre: 'Carbon', costo: 12.0107, medida: 'C' },
-  { id: 7, nombre: 'Nitrogen', costo: 14.0067, medida: 'N' },
-  { id: 8, nombre: 'Oxygen', costo: 15.9994, medida: 'O' },
-  { id: 9, nombre: 'Fluorine', costo: 18.9984, medida: 'F' },
-  { id: 10, nombre: 'Neon', costo: 20.1797, medida: 'Ne' },
-  { id: 11, nombre: 'Sodium', costo: 22.9897, medida: 'Na' },
-  { id: 12, nombre: 'Magnesium', costo: 24.305, medida: 'Mg' },
-  { id: 13, nombre: 'Aluminum', costo: 26.9815, medida: 'Al' },
-  { id: 14, nombre: 'Silicon', costo: 28.0855, medida: 'Si' },
-  { id: 15, nombre: 'Phosphorus', costo: 30.9738, medida: 'P' },
-  { id: 16, nombre: 'Sulfur', costo: 32.065, medida: 'S' },
-  { id: 17, nombre: 'Chlorine', costo: 35.453, medida: 'Cl' },
-  { id: 18, nombre: 'Argon', costo: 39.948, medida: 'Ar' },
-   { id: 20, nombre: 'Calcium', costo: 40.078, medida: 'Ca' },
-
-];
+export const ELEMENT_DATA: Element[] = [];
 
 
 /**  Copyright 2018 Google Inc. All Rights Reserved.
