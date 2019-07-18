@@ -19,6 +19,7 @@ export class MadapayComponent implements OnInit {
   modalClose(e){
    
   this.modals=e;
+  
 this.getModal.emit(this.modals);
   }
  

@@ -7,20 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellComponent implements OnInit {
 public producto:any;
-
+public total:number;
   constructor() { }
 
   ngOnInit() {
   }
   emitRegister(event){
-
     this.producto=event;
-  setTimeout(()=>{
-    this.producto=null;
-  },100)
- 
-
-
+   setTimeout(()=>{ this.producto=null;},100)
   }
-
+  getPrice(event){
+    this.total=event;
+  }
 }

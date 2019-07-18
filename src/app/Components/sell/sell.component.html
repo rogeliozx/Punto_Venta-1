@@ -3,13 +3,17 @@
     class="col-md-6 col-sm-6 col-xs-12"></register>
     
         <data-table 
+
         [producto]="producto"
+        (price)="getPrice($event)"
         id="data-table" 
         class="example-container mat-elevation-z8 col-md-6 col-sm-6 col-xs-12 x_panel">
     </data-table>
 
     
     
-        <pay class="top row col-md-12 col-sm-12 col-xs-12"></pay>
+        <pay 
+        [total]="total"
+        class="top row col-md-12 col-sm-12 col-xs-12"></pay>
     
 </div>

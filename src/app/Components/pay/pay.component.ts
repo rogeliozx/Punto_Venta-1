@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {
   trigger,
   state,
@@ -26,7 +26,7 @@ import {
 })
 export class PayComponent implements OnInit {
 public modal:boolean;
-
+@Input() total:number;
 
   constructor() {
     this.modal=false;

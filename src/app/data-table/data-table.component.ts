@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { OnChanges,AfterContentChecked} from '@angular/core';
+import { OnChanges,AfterContentChecked,Output,EventEmitter } from '@angular/core';
 /**
  * @title Table with selection
  */
@@ -11,7 +11,7 @@ import { OnChanges,AfterContentChecked} from '@angular/core';
   templateUrl: 'data-table.component.html',
 })
 export class TableSelection implements OnChanges,AfterContentChecked {
- 
+  @Output() price=new EventEmitter();
   @Input() producto: any;
   public total:number;
   private destroy:boolean=false;
@@ -29,22 +29,24 @@ export class TableSelection implements OnChanges,AfterContentChecked {
       this.AddingToTable(this.producto);
       this.producto=[]; 
       this.CostTotal()
+     this.emitTotal(this.total)
     }
    
   }
-  //despues de hacer algo en el dom 
+  // se usa cada vez ahi un cambio en el dom del componente
   ngAfterContentChecked() {
     if(this.destroy){
-     //aqui se emitiran los datos cuando sufran cambios 
-
+     //aqui se emitiran los datos cuando sufran cambios al borrar
+     this.emitTotal(this.total);
+     this.destroy=false;
     }
     
   }
   
-// se usa cada vez ahi un cambio en el dom del componente
-  
+emitTotal(value:number){
+  this.price.emit(value);
+}
 
-  /** Whether the number of selected elements matches the total number of rows. */
   removeAllRows() {
   if(this.data!==[]){
     this.data.splice(0, this.data.length);
@@ -85,7 +87,7 @@ total=total+this.getCost(element.costo);
     })
 
    this.total=total;
-   console.log(this.total)
+   
   }
   getCost(cost):number{
     let costo:number;
