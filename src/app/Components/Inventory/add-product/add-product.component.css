@@ -1,0 +1,108 @@
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .value-button:hover {
+    cursor: pointer;
+  }
+  
+   #decrease {
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+  }
+  
+   #increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  input#number {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  /* checksboxx*/
+  .caja{
+    width:100%;
+  }
+  .list {
+    flex: 0 0 20rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .list__item {
+    position: relative;
+  }
+  .list__item:hover > .label {
+    color: #009688;
+  }
+  .list__item:hover > .label::before {
+    border: 0.5rem solid #009688;
+    margin-right: 2rem;
+  }
+  
+  .radio-btn {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .radio-btn:checked + .label {
+    color: #009688;
+  }
+  .radio-btn:checked + .label::before {
+    margin-right: 2rem;
+    border: 0.2rem solid #009688;
+    background: rgb(251, 251, 251);
+  }
+  
+  .label {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    color: rgb(5, 5, 5);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s linear;
+  }
+  
+  .label::before {
+    display: inline-block;
+    content: "";
+    height: 1.125rem;
+    width: 1.125rem;
+    margin-right: 0.625rem;
+    border: 0.2rem solid rgb(5, 5, 5);
+    border-radius: 50%;
+    transition: all 0.25s linear;
+  }

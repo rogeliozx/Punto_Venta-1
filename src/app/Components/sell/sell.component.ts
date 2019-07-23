@@ -17,6 +17,6 @@ public total:number;
    setTimeout(()=>{ this.producto=null;},100)
   }
   getPrice(event){
-    this.total=event;
+   setTimeout(()=>{this.total=event},200);
   }
 }
