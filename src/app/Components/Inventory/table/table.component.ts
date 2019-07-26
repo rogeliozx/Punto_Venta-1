@@ -12,7 +12,7 @@ export class TableComponent implements OnInit {
     {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
   ];
 
-  headElements = ['ID', 'First', 'Last', 'Handle'];
+  headElements = ['ID', 'First', 'Last', 'Handle','Actions','exist'];
 
   constructor() { }
 

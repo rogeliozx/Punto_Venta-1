@@ -15,6 +15,7 @@ import { MatTableModule, MatPaginatorModule, MatSortModule,MatCheckboxModule } f
 import { InventoryComponent } from './Components/Inventory/inventory.component';
 import { TableComponent } from './Components/Inventory/table/table.component';
 import { AddProductComponent } from './Components/Inventory/add-product/add-product.component';
+import { LoginComponent } from './Components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { AddProductComponent } from './Components/Inventory/add-product/add-prod
     TableSelection,
     InventoryComponent,
     TableComponent,
-    AddProductComponent
+    AddProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

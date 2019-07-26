@@ -44,9 +44,9 @@
                             </div>
                 </div>
                 <div class="input-group mb-3" *ngIf="cantidad; else Others">
-                        <div class="value-button" id="decrease"  value="Decrease Value">-</div>
-                        <input type="number" id="number" value="0" />
-                        <div class="value-button" id="increase" value="Increase Value">+</div>
+                        <div class="value-button" (click)='decreaseValue()'  id="decrease"  value="Decrease Value">-</div>
+                        <input type="number" id="number"  value="{{piezas}}" (keyup)="onKeydown($event)" digitOnly pattern="[0-9]*" />
+                        <div class="value-button" (click)='increaseValue()' id="increase" value="Increase Value">+</div>
                 </div>
                 <ng-template #Others>
                         <div class="input-group mb-3">

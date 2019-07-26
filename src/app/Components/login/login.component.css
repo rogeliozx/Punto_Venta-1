@@ -1,0 +1,139 @@
+body,
+html {
+  width: 100vw;
+  font-size: 1rem;
+  line-height: 1.2;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background:  #222233;
+  color: #fafafa;
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #fffacd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #4ae08c;
+}
+/* Flex Form */
+.flex-form {
+  display: flex;
+  flex-flow: column;
+  max-width: 500px;
+  width: 100%;
+  padding: 1em;
+  margin: 1em auto;
+}
+.flex-form label {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  margin: 1em auto;
+}
+.flex-form input {
+  flex: 1;
+  padding: 15px 10px;
+  border: 2px solid  #fffacd;
+  margin: 20px 0;
+  border-radius: 3px;
+  background: none;
+  color: #fafafa;
+}
+
+.flex-form label span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(100% - 0px);
+  padding: 15px;
+  background: #222233;
+  color: #fffacd;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0);
+  border: 2px solid #fffacd;
+  border-radius: 5px;
+  border-right: 2px solid #fffacd;
+}
+
+.flex-form .reactive:focus {
+  outline: none;
+  transition: all 0.3s;
+  border: 2px solid #4ae08c;
+}
+
+.flex-form .reactive:valid {
+  border-color: #a8ffc5;
+}
+
+.flex-form .reactive:focus:invalid {
+  border-color: #a8ffc5;
+}
+
+.flex-form .reactive:valid ~ span {
+  color: #222233;
+  border-color: #a8ffc5;
+  background: #a8ffc5;
+}
+
+.flex-form .reactive:focus:required:invalid ~ span {
+  color: #222233;
+  background: #ffa8a8;
+  border-color: #ffa8a8;
+}
+
+.flex-form .reactive:not(:placeholder-shown):invalid ~ span {
+    color: #222233;
+    background-color: #fffacd;
+}
+
+.flex-form .reactive:focus ~ span {
+  top: -30px;
+  transform: translate3d(0, 0, 0);
+  border-radius: 3px 3px 0 0;
+}
+
+.flex-form span.expanded {
+  color: #222233;
+  background: #fffacd;
+  top: -30px;
+  transform: translate3d(0, 0, 0);
+  border-radius: 3px 3px 0 0;
+  border-left: 2px solid #fffacd;
+  border-right: 2px solid #fffacd;
+}
+
+.flex-form input[type="submit"] {
+  background: #fffacd;
+  color: #222233;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px 25px;
+  font-weight: bold;
+}
+.flex-form input[type="submit"]:hover {
+  background: #4ae08c;
+}
+.flex-form .form-message {
+  margin-left: auto;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: yellow !important;
+  -webkit-box-shadow: 0 0 0 30px #222233 inset !important;
+}

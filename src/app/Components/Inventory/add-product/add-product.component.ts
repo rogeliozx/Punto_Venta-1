@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductComponent implements OnInit {
   public cantidad: boolean;
-  constructor() {
+  public piezas:number=1;
+  constructor(
+    
+  ) {
 
   }
 
@@ -23,5 +26,19 @@ export class AddProductComponent implements OnInit {
       this.cantidad = false;
     }
     
+  }
+  onKeydown(value){
+  let  valor=value.target.value;
+    if(valor!=undefined && valor!=""){
+      this.piezas=valor;
+      
+    }
+
+  }
+  increaseValue(){
+this.piezas++;
+  }
+  decreaseValue(){
+    this.piezas--;
   }
 }

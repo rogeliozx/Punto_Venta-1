@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav id="nav" class="nav_menu">
+<nav *ngIf="path" id="nav" class="nav_menu">
 
   <a class="navbar-brand user-profile dropdown-toggle" href="#">
     <img src="../assets/img/prueba1.png" width="100" height="50" class="d-inline-block align-top" alt="">
@@ -8,7 +8,7 @@
 
 
 </nav>
-<aside>
+<aside *ngIf="path">
   <nav>
     <ul>
       <li>
